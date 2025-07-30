@@ -117,7 +117,6 @@
         </header>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            <!-- Unit 1 Card -->
             <div class="unit-card bg-white rounded-lg shadow-md overflow-hidden">
                 <div class="bg-green-700 text-white p-4">
                     <h2 class="text-xl font-semibold">Unit 1</h2>
@@ -150,7 +149,6 @@
                 </div>
             </div>
 
-            <!-- Unit 2 Card -->
             <div class="unit-card bg-white rounded-lg shadow-md overflow-hidden">
                 <div class="bg-blue-700 text-white p-4">
                     <h2 class="text-xl font-semibold">Unit 2</h2>
@@ -183,7 +181,6 @@
                 </div>
             </div>
 
-            <!-- Unit 3 Card -->
             <div class="unit-card bg-white rounded-lg shadow-md overflow-hidden">
                 <div class="bg-amber-700 text-white p-4">
                     <h2 class="text-xl font-semibold">Unit 3</h2>
@@ -216,7 +213,6 @@
                 </div>
             </div>
 
-            <!-- Unit 4 Card -->
             <div class="unit-card bg-white rounded-lg shadow-md overflow-hidden">
                 <div class="bg-purple-700 text-white p-4">
                     <h2 class="text-xl font-semibold">Unit 4</h2>
@@ -250,7 +246,6 @@
             </div>
         </div>
 
-        <!-- Content Display Area -->
         <div id="content-area" class="bg-white rounded-lg shadow-lg p-6 mb-8">
             <div id="welcome-content" class="text-center py-12">
                 <svg class="w-24 h-24 mx-auto text-green-600 mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -274,7 +269,6 @@
                 </div>
             </div>
 
-            <!-- Unit 1 Content -->
             <div id="unit1-content" class="content-section">
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-2xl font-bold text-green-800">Unit 1: Environment Fundamentals</h2>
@@ -440,7 +434,6 @@
                 </div>
             </div>
 
-            <!-- Unit 2 Content -->
             <div id="unit2-content" class="content-section">
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-2xl font-bold text-blue-800">Unit 2: Global Environmental Issues</h2>
@@ -725,7 +718,6 @@
                 </div>
             </div>
 
-            <!-- Unit 3 Content -->
             <div id="unit3-content" class="content-section">
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-2xl font-bold text-amber-800">Unit 3: Environmental Degradation</h2>
@@ -1090,7 +1082,6 @@
                 </div>
             </div>
 
-            <!-- Unit 4 Content -->
             <div id="unit4-content" class="content-section">
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-2xl font-bold text-purple-800">Unit 4: Ancient Indian Approach to Environment</h2>
@@ -1392,7 +1383,6 @@
                 </div>
             </div>
 
-            <!-- Quiz Content -->
             <div id="quiz-content" class="content-section">
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-2xl font-bold text-gray-800">Environmental Law Practice Quiz</h2>
@@ -1426,8 +1416,7 @@
                         <div id="question-container" class="mb-6">
                             <p id="question-text" class="text-lg mb-4">Question text will appear here</p>
                             <div id="options-container" class="space-y-2">
-                                <!-- Options will be inserted here -->
-                            </div>
+                                </div>
                         </div>
                         
                         <div id="feedback-container" class="mb-6 hidden">
@@ -1464,8 +1453,7 @@
                         <h3 class="text-2xl font-bold mb-2">Quiz Completed!</h3>
                         <p class="text-lg mb-4">Your score: <span id="final-score">0</span> out of <span id="max-score">10</span></p>
                         <div id="performance-feedback" class="text-left bg-blue-50 p-4 rounded-lg mb-6 mx-auto max-w-md">
-                            <!-- Performance feedback will be inserted here -->
-                        </div>
+                            </div>
                         <div class="flex justify-center space-x-4">
                             <button onclick="restartQuiz()" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-lg transition duration-300 flex items-center">
                                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -1490,67 +1478,7 @@
         </footer>
     </div>
 
-    <script>
-        // Tab functionality
-        function showTab(tabId, button) {
-            // Hide all tab contents
-            const tabContents = document.querySelectorAll('.tab-content');
-            tabContents.forEach(content => {
-                content.classList.add('hidden');
-            });
-            
-            // Show the selected tab content
-            document.getElementById(tabId).classList.remove('hidden');
-            
-            // Update active tab button
-            const tabButtons = document.querySelectorAll('.tab-button');
-            tabButtons.forEach(btn => {
-                btn.classList.remove('active-tab');
-            });
-            button.classList.add('active-tab');
-            
-            // Update progress
-            updateProgress();
-        }
-        
-        // Navigation functions
-        function showWelcome() {
-            const contentSections = document.querySelectorAll('.content-section');
-            contentSections.forEach(section => {
-                section.style.display = 'none';
-            });
-            document.getElementById('welcome-content').style.display = 'block';
-        }
-        
-        function showUnit(unitNumber) {
-            const contentSections = document.querySelectorAll('.content-section');
-            contentSections.forEach(section => {
-                section.style.display = 'none';
-            });
-            document.getElementById(`unit${unitNumber}-content`).style.display = 'block';
-            
-            // Update progress
-            updateProgress();
-        }
-        
-        function showQuiz() {
-            const contentSections = document.querySelectorAll('.content-section');
-            contentSections.forEach(section => {
-                section.style.display = 'none';
-            });
-            document.getElementById('quiz-content').style.display = 'block';
-        }
-        
-        // Progress tracking
-        let visitedSections = new Set();
-        
-        function updateProgress() {
-            // Get current section and tab
-            const visibleSection = Array.from(document.querySelectorAll('.content-section')).find(section => section.style.display === 'block');
-            if (!visibleSection || visibleSection.id === 'welcome-content' || visibleSection.id === 'quiz-content') return;
-            
-            const visibleTab = visibleSection.querySelector('.tab-content:not(.hidden)');
-            if (!visibleTab) return;
-            
-            // Add to visited sections
-            visitedSections.add(visibleTab.i<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'967269bd41b947f3',t:'MTc1Mzg1Mjg5Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+    <script src="main.js"></script>
+    <script src="quiz.js"></script>
+</body>
+</html>
