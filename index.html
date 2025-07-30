@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Environmental Law Study Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f9f4;
+            color: #2d3748;
+        }
+        
+        .unit-card {
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .unit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .content-section {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .active-tab {
+            background-color: #2c7a51;
+            color: white;
+        }
+        
+        .tab-button {
+            transition: all 0.3s ease;
+        }
+        
+        .tab-button:hover:not(.active-tab) {
+            background-color: #e2f2e8;
+        }
+        
+        .highlight {
+            background-color: #fef3c7;
+            padding: 0 2px;
+            border-radius: 2px;
+        }
+        
+        .concept-box {
+            border-left: 4px solid #2c7a51;
+            background-color: #e2f2e8;
+            transition: all 0.3s ease;
+        }
+        
+        .concept-box:hover {
+            transform: translateX(5px);
+        }
+        
+        .timeline-item {
+            position: relative;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -25px;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: #2c7a51;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -29px;
+            top: 10px;
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            background-color: #2c7a51;
+        }
+        
+        .progress-container {
+            height: 8px;
+            width: 100%;
+            background-color: #e2e8f0;
+            border-radius: 4px;
+            margin-top: 8px;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            border-radius: 4px;
+            background-color: #2c7a51;
+            width: 0;
+            transition: width 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-green-800 mb-2">Environmental Law Study Guide</h1>
+            <p class="text-lg text-gray-600">Comprehensive review for your exam</p>
+            <div class="progress-container mt-4">
+                <div id="progress-bar" class="progress-bar"></div>
+            </div>
+            <p id="progress-text" class="text-sm text-gray-500 mt-2">0% of content reviewed</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <!-- Unit 1 Card -->
+            <div class="unit-card bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="bg-green-700 text-white p-4">
+                    <h2 class="text-xl font-semibold">Unit 1</h2>
+                    <p class="text-sm opacity-90">Environment Fundamentals</p>
+                </div>
+                <div class="p-4">
+                    <ul class="text-sm space-y-2">
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 mr-2 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            Meaning of Environment
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 mr-2 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            Concept of Environment
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 mr-2 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            Environment Pollution
+                        </li>
+                    </ul>
+                    <button onclick="showUnit(1)" class="mt-4 w-full bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded transition duration-300">
+                        Study Now
+                    </button>
+                </div>
+            </div>
+
+            <!-- Unit 2 Card -->
+            <div class="unit-card bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="bg-blue-700 text-white p-4">
+                    <h2 class="text-xl font-semibold">Unit 2</h2>
+                    <p class="text-sm opacity-90">Global Environmental Issues</p>
+                </div>
+                <div class="p-4">
+                    <ul class="text-sm space-y-2">
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 mr-2 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            Ozone Depletion
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 mr-2 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            Global Warming
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 mr-2 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            Climate Change
+                        </li>
+                    </ul>
+                    <button onclick="showUnit(2)" class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition duration-300">
+                        Study Now
+                    </button>
+                </div>
+            </div>
+
+            <!-- Unit 3 Card -->
+            <div class="unit-card bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="bg-amber-700 text-white p-4">
+                    <h2 class="text-xl font-semibold">Unit 3</h2>
+                    <p class="text-sm opacity-90">Environmental Degradation</p>
+                </div>
+                <div class="p-4">
+                    <ul class="text-sm space-y-2">
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 mr-2 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            Causes of Degradation
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 mr-2 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            Effects of Degradation
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 mr-2 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            Mitigation Strategies
+                        </li>
+                    </ul>
+                    <button onclick="showUnit(3)" class="mt-4 w-full bg-amber-600 hover:bg-amber-700 text-white py-2 px-4 rounded transition duration-300">
+                        Study Now
+                    </button>
+                </div>
+            </div>
+
+            <!-- Unit 4 Card -->
+            <div class="unit-card bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="bg-purple-700 text-white p-4">
+                    <h2 class="text-xl font-semibold">Unit 4</h2>
+                    <p class="text-sm opacity-90">Ancient Indian Approach</p>
+                </div>
+                <div class="p-4">
+                    <ul class="text-sm space-y-2">
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 mr-2 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            Historical Context
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 mr-2 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            Traditional Practices
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 mr-2 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            Modern Applications
+                        </li>
+                    </ul>
+                    <button onclick="showUnit(4)" class="mt-4 w-full bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded transition duration-300">
+                        Study Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Display Area -->
+        <div id="content-area" class="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <div id="welcome-content" class="text-center py-12">
+                <svg class="w-24 h-24 mx-auto text-green-600 mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                </svg>
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Welcome to Your Environmental Law Study Guide</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mb-8">Select any unit from above to begin studying. This interactive guide will help you master all the key concepts for your exam.</p>
+                <div class="flex justify-center space-x-4">
+                    <button onclick="showUnit(1)" class="bg-green-600 hover:bg-green-700 text-white py-2 px-6 rounded-lg transition duration-300 flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                        </svg>
+                        Start with Unit 1
+                    </button>
+                    <button onclick="showQuiz()" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-lg transition duration-300 flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                        </svg>
+                        Take Practice Quiz
+                    </button>
+                </div>
+            </div>
+
+            <!-- Unit 1 Content -->
+            <div id="unit1-content" class="content-section">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-green-800">Unit 1: Environment Fundamentals</h2>
+                    <button onclick="showWelcome()" class="text-green-600 hover:text-green-800 flex items-center">
+                        <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                        </svg>
+                        Back to Menu
+                    </button>
+                </div>
+
+                <div class="mb-8">
+                    <div class="flex space-x-2 mb-4">
+                        <button onclick="showTab('meaning', this)" class="tab-button active-tab px-4 py-2 rounded-t-lg font-medium">Meaning & Concept</button>
+                        <button onclick="showTab('pollution', this)" class="tab-button px-4 py-2 rounded-t-lg font-medium">Environment Pollution</button>
+                        <button onclick="showTab('components', this)" class="tab-button px-4 py-2 rounded-t-lg font-medium">Components</button>
+                    </div>
+
+                    <div id="meaning" class="tab-content bg-white p-6 rounded-b-lg border-t-2 border-green-600">
+                        <h3 class="text-xl font-semibold mb-4 text-green-700">Meaning and Concept of Environment</h3>
+                        
+                        <div class="concept-box p-4 mb-6 rounded">
+                            <h4 class="font-semibold mb-2">Definition</h4>
+                            <p>The term "environment" is derived from the French word "environner" meaning "to surround" or "to encircle". It refers to the sum total of all conditions and influences that affect the development and life of organisms.</p>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-2">Legal Definition</h4>
+                            <p>According to the Environment (Protection) Act, 1986 of India, environment includes:</p>
+                            <ul class="list-disc pl-6 mt-2 space-y-1">
+                                <li>Water, air, and land</li>
+                                <li>The interrelationship which exists among and between water, air, land, human beings, other living creatures, plants, micro-organisms, and property</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-2">Conceptual Framework</h4>
+                            <p>The environment can be conceptualized in different ways:</p>
+                            <ul class="list-disc pl-6 mt-2 space-y-1">
+                                <li><span class="highlight">Natural Environment</span>: Encompasses all living and non-living things occurring naturally</li>
+                                <li><span class="highlight">Built Environment</span>: Refers to the human-made surroundings that provide the setting for human activity</li>
+                                <li><span class="highlight">Social Environment</span>: The immediate physical and social setting in which people live</li>
+                                <li><span class="highlight">Economic Environment</span>: Economic factors that influence decision making</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2 text-green-700">Key Points for Exam</h4>
+                            <ul class="list-disc pl-6 space-y-1">
+                                <li>Environment is a holistic concept that includes both biotic (living) and abiotic (non-living) components</li>
+                                <li>It is dynamic and constantly changing due to natural processes and human activities</li>
+                                <li>The legal definition emphasizes interrelationships between components</li>
+                                <li>Environmental law aims to regulate human interaction with the environment</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div id="pollution" class="tab-content bg-white p-6 rounded-b-lg border-t-2 border-green-600 hidden">
+                        <h3 class="text-xl font-semibold mb-4 text-green-700">Environment Pollution</h3>
+                        
+                        <div class="concept-box p-4 mb-6 rounded">
+                            <h4 class="font-semibold mb-2">Definition</h4>
+                            <p>Environmental pollution is the introduction of contaminants into the natural environment that cause adverse change. Pollution can take the form of chemical substances or energy, such as noise, heat, or light.</p>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-2">Major Types of Pollution</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+                                <div class="bg-blue-50 p-3 rounded">
+                                    <h5 class="font-medium text-blue-800">Air Pollution</h5>
+                                    <p class="text-sm">Introduction of harmful substances including particulates and biological molecules into Earth's atmosphere</p>
+                                </div>
+                                <div class="bg-blue-50 p-3 rounded">
+                                    <h5 class="font-medium text-blue-800">Water Pollution</h5>
+                                    <p class="text-sm">Contamination of water bodies including lakes, rivers, oceans, and groundwater</p>
+                                </div>
+                                <div class="bg-blue-50 p-3 rounded">
+                                    <h5 class="font-medium text-blue-800">Soil Pollution</h5>
+                                    <p class="text-sm">Degradation of soil quality due to the presence of toxic chemicals and pollutants</p>
+                                </div>
+                                <div class="bg-blue-50 p-3 rounded">
+                                    <h5 class="font-medium text-blue-800">Noise Pollution</h5>
+                                    <p class="text-sm">Harmful levels of noise that disrupt the balance of human or animal life</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-2">Legal Framework for Pollution Control in India</h4>
+                            <ul class="list-disc pl-6 mt-2 space-y-1">
+                                <li><span class="highlight">Water (Prevention and Control of Pollution) Act, 1974</span></li>
+                                <li><span class="highlight">Air (Prevention and Control of Pollution) Act, 1981</span></li>
+                                <li><span class="highlight">Environment (Protection) Act, 1986</span></li>
+                                <li><span class="highlight">Noise Pollution (Regulation and Control) Rules, 2000</span></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2 text-green-700">Key Points for Exam</h4>
+                            <ul class="list-disc pl-6 space-y-1">
+                                <li>Pollution is defined as any undesirable change in physical, chemical, or biological characteristics of air, water, or soil</li>
+                                <li>Pollutants can be classified as primary (direct from source) or secondary (formed by reactions)</li>
+                                <li>The "Polluter Pays Principle" is a fundamental concept in environmental law</li>
+                                <li>India follows a command-and-control approach to pollution regulation</li>
+                                <li>Central and State Pollution Control Boards are key regulatory bodies</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div id="components" class="tab-content bg-white p-6 rounded-b-lg border-t-2 border-green-600 hidden">
+                        <h3 class="text-xl font-semibold mb-4 text-green-700">Components of Environment</h3>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-2">Biotic Components</h4>
+                            <p>Living organisms that interact with each other and their environment:</p>
+                            <ul class="list-disc pl-6 mt-2 space-y-1">
+                                <li><span class="highlight">Producers</span>: Organisms that produce their own food (plants, algae)</li>
+                                <li><span class="highlight">Consumers</span>: Organisms that depend on others for food (herbivores, carnivores, omnivores)</li>
+                                <li><span class="highlight">Decomposers</span>: Organisms that break down dead organic matter (bacteria, fungi)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-2">Abiotic Components</h4>
+                            <p>Non-living physical and chemical factors that affect ecosystems:</p>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-2">
+                                <div class="bg-gray-50 p-3 rounded">
+                                    <h5 class="font-medium">Lithosphere</h5>
+                                    <p class="text-sm">The solid outer layer of Earth including soil, rocks, and minerals</p>
+                                </div>
+                                <div class="bg-gray-50 p-3 rounded">
+                                    <h5 class="font-medium">Hydrosphere</h5>
+                                    <p class="text-sm">All water on Earth's surface including oceans, lakes, rivers, and groundwater</p>
+                                </div>
+                                <div class="bg-gray-50 p-3 rounded">
+                                    <h5 class="font-medium">Atmosphere</h5>
+                                    <p class="text-sm">The layer of gases surrounding Earth that supports life</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-2">Environmental Interactions</h4>
+                            <p>The environment functions through complex interactions between its components:</p>
+                            <ul class="list-disc pl-6 mt-2 space-y-1">
+                                <li><span class="highlight">Food Chains and Food Webs</span>: Pathways of energy transfer through ecosystems</li>
+                                <li><span class="highlight">Biogeochemical Cycles</span>: Movement of elements and compounds through the environment (carbon cycle, nitrogen cycle, water cycle)</li>
+                                <li><span class="highlight">Ecological Succession</span>: Process of change in species structure of an ecological community over time</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2 text-green-700">Key Points for Exam</h4>
+                            <ul class="list-disc pl-6 space-y-1">
+                                <li>The environment is an integrated system where all components are interconnected</li>
+                                <li>Changes in one component can affect the entire system</li>
+                                <li>Environmental law aims to protect both biotic and abiotic components</li>
+                                <li>The concept of "ecosystem services" recognizes the benefits humans derive from environmental components</li>
+                                <li>Environmental impact assessment evaluates how projects affect these components</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Unit 2 Content -->
+            <div id="unit2-content" class="content-section">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-blue-800">Unit 2: Global Environmental Issues</h2>
+                    <button onclick="showWelcome()" class="text-blue-600 hover:text-blue-800 flex items-center">
+                        <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                        </svg>
+                        Back to Menu
+                    </button>
+                </div>
+
+                <div class="mb-8">
+                    <div class="flex space-x-2 mb-4 overflow-x-auto">
+                        <button onclick="showTab('ozone', this)" class="tab-button active-tab px-4 py-2 rounded-t-lg font-medium whitespace-nowrap">Ozone Depletion</button>
+                        <button onclick="showTab('warming', this)" class="tab-button px-4 py-2 rounded-t-lg font-medium whitespace-nowrap">Global Warming</button>
+                        <button onclick="showTab('climate', this)" class="tab-button px-4 py-2 rounded-t-lg font-medium whitespace-nowrap">Climate Change</button>
+                        <button onclick="showTab('legal', this)" class="tab-button px-4 py-2 rounded-t-lg font-medium whitespace-nowrap">Legal Framework</button>
+                    </div>
+
+                    <div id="ozone" class="tab-content bg-white p-6 rounded-b-lg border-t-2 border-blue-600">
+                        <h3 class="text-xl font-semibold mb-4 text-blue-700">Ozone Depletion</h3>
+                        
+                        <div class="concept-box p-4 mb-6 rounded">
+                            <h4 class="font-semibold mb-2">What is the Ozone Layer?</h4>
+                            <p>The ozone layer is a region of Earth's stratosphere that absorbs most of the Sun's ultraviolet (UV) radiation. It contains high concentrations of ozone (O₃) relative to other parts of the atmosphere.</p>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-2">Causes of Ozone Depletion</h4>
+                            <p>The primary causes of ozone depletion include:</p>
+                            <ul class="list-disc pl-6 mt-2 space-y-1">
+                                <li><span class="highlight">Chlorofluorocarbons (CFCs)</span>: Used in refrigerants, aerosol propellants, and solvents</li>
+                                <li><span class="highlight">Halons</span>: Used in fire extinguishers</li>
+                                <li><span class="highlight">Carbon tetrachloride</span>: Used in various industrial processes</li>
+                                <li><span class="highlight">Methyl chloroform</span>: Used as a solvent</li>
+                                <li><span class="highlight">Hydrochlorofluorocarbons (HCFCs)</span>: Developed as CFC replacements but still harmful</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-2">Effects of Ozone Depletion</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+                                <div class="bg-blue-50 p-3 rounded">
+                                    <h5 class="font-medium text-blue-800">Human Health</h5>
+                                    <ul class="list-disc pl-4 text-sm">
+                                        <li>Increased skin cancers</li>
+                                        <li>Eye cataracts and damage</li>
+                                        <li>Weakened immune systems</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-blue-50 p-3 rounded">
+                                    <h5 class="font-medium text-blue-800">Ecological Impact</h5>
+                                    <ul class="list-disc pl-4 text-sm">
+                                        <li>Damage to marine phytoplankton</li>
+                                        <li>Reduced crop yields</li>
+                                        <li>Disruption of aquatic ecosystems</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-2">The Montreal Protocol</h4>
+                            <p>The Montreal Protocol on Substances that Deplete the Ozone Layer is an international treaty designed to protect the ozone layer by phasing out the production of numerous substances believed to be responsible for ozone depletion.</p>
+                            <ul class="list-disc pl-6 mt-2 space-y-1">
+                                <li>Adopted in 1987 and entered into force in 1989</li>
+                                <li>Has undergone several revisions (London, Copenhagen, Montreal, Beijing amendments)</li>
+                                <li>Considered one of the most successful international environmental agreements</li>
+                                <li>India ratified the Montreal Protocol in 1992</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2 text-blue-700">Key Points for Exam</h4>
+                            <ul class="list-disc pl-6 space-y-1">
+                                <li>The Antarctic ozone hole was first discovered in 1985</li>
+                                <li>CFCs have atmospheric lifetimes of 50-100+ years</li>
+                                <li>The Montreal Protocol has successfully reduced ozone-depleting substances by 98%</li>
+                                <li>Recovery of the ozone layer is expected by mid-21st century</li>
+                                <li>The Kigali Amendment (2016) added HFCs to the list of controlled substances</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div id="warming" class="tab-content bg-white p-6 rounded-b-lg border-t-2 border-blue-600 hidden">
+                        <h3 class="text-xl font-semibold mb-4 text-blue-700">Global Warming</h3>
+                        
+                        <div class="concept-box p-4 mb-6 rounded">
+                            <h4 class="font-semibold mb-2">Definition</h4>
+                            <p>Global warming is the long-term heating of Earth's climate system observed since the pre-industrial period (between 1850 and 1900) due to human activities, primarily fossil fuel burning, which increases heat-trapping greenhouse gas levels in Earth's atmosphere.</p>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-2">The Greenhouse Effect</h4>
+                            <p>The greenhouse effect is a natural process that warms the Earth's surface. When the Sun's energy reaches the Earth's atmosphere, some of it is reflected back to space and the rest is absorbed and re-radiated by greenhouse gases.</p>
+                            <div class="mt-4">
+                                <h5 class="font-medium">Primary Greenhouse Gases:</h5>
+                                <ul class="list-disc pl-6 mt-1 space-y-1">
+                                    <li><span class="highlight">Carbon dioxide (CO₂)</span>: From burning fossil fuels, deforestation</li>
+                                    <li><span class="highlight">Methane (CH₄)</span>: From agriculture, waste decomposition</li>
+                                    <li><span class="highlight">Nitrous oxide (N₂O)</span>: From fertilizers, industrial processes</li>
+                                    <li><span class="highlight">Fluorinated gases</span>: From industrial processes</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-2">Evidence of Global Warming</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+                                <div class="bg-blue-50 p-3 rounded">
+                                    <h5 class="font-medium text-blue-800">Temperature Rise</h5>
+                                    <p class="text-sm">Global average temperature has increased by about 1.1°C since the pre-industrial era</p>
+                                </div>
+                                <div class="bg-blue-50 p-3 rounded">
+                                    <h5 class="font-medium text-blue-800">Sea Level Rise</h5>
+                                    <p class="text-sm">Global sea level rose about 8-9 inches (21-24 cm) since 1880</p>
+                                </div>
+                                <div class="bg-blue-50 p-3 rounded">
+                                    <h5 class="font-medium text-blue-800">Ocean Acidification</h5>
+                                    <p class="text-sm">Oceans have absorbed 20-30% of human-caused CO₂ emissions, increasing acidity by 30%</p>
+                                </div>
+                                <div class="bg-blue-50 p-3 rounded">
+                                    <h5 class="font-medium text-blue-800">Ice Sheet Decline</h5>
+                                    <p class="text-sm">Greenland and Antarctic ice sheets have decreased in mass, with accelerating ice loss</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-2">Impacts of Global Warming</h4>
+                            <ul class="list-disc pl-6 mt-2 space-y-1">
+                                <li>Extreme weather events (heat waves, droughts, floods)</li>
+                                <li>Threats to coastal communities from rising sea levels</li>
+                                <li>Disruption of food systems and water supplies</li>
+                                <li>Biodiversity loss and ecosystem damage</li>
+                                <li>Health impacts from changing disease patterns</li>
+                                <li>Economic losses from damage to infrastructure and productivity</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2 text-blue-700">Key Points for Exam</h4>
+                            <ul class="list-disc pl-6 space-y-1">
+                                <li>The Paris Agreement aims to limit global warming to well below 2°C, preferably 1.5°C</li>
+                                <li>Carbon dioxide levels are at their highest in 800,000 years</li>
+                                <li>The IPCC (Intergovernmental Panel on Climate Change) is the UN body for assessing science related to climate change</li>
+                                <li>The concept of "carbon budget" refers to the maximum amount of carbon that can be released while keeping warming below specific thresholds</li>
+                                <li>India has pledged to reduce emissions intensity by 33-35% by 2030 from 2005 levels</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div id="climate" class="tab-content bg-white p-6 rounded-b-lg border-t-2 border-blue-600 hidden">
+                        <h3 class="text-xl font-semibold mb-4 text-blue-700">Climate Change</h3>
+                        
+                        <div class="concept-box p-4 mb-6 rounded">
+                            <h4 class="font-semibold mb-2">Definition</h4>
+                            <p>Climate change refers to long-term shifts in temperatures and weather patterns. These shifts may be natural, but since the 1800s, human activities have been the main driver of climate change, primarily due to the burning of fossil fuels like coal, oil, and gas, which produces heat-trapping gases.</p>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-2">Difference Between Global Warming and Climate Change</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+                                <div class="bg-blue-50 p-3 rounded">
+                                    <h5 class="font-medium text-blue-800">Global Warming</h5>
+                                    <p class="text-sm">Refers specifically to the long-term heating of Earth's climate system observed since the pre-industrial period</p>
+                                </div>
+                                <div class="bg-blue-50 p-3 rounded">
+                                    <h5 class="font-medium text-blue-800">Climate Change</h5>
+                                    <p class="text-sm">Broader term that refers to long-term changes in climate patterns, including temperature, precipitation, wind patterns, and other aspects of the Earth's climate system</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-2">Climate Change Impacts in India</h4>
+                            <ul class="list-disc pl-6 mt-2 space-y-1">
+                                <li><span class="highlight">Water Resources</span>: Changes in monsoon patterns, increased water stress</li>
+                                <li><span class="highlight">Agriculture</span>: Reduced crop yields, increased vulnerability of farmers</li>
+                                <li><span class="highlight">Coastal Areas</span>: Sea level rise affecting coastal communities</li>
+                                <li><span class="highlight">Health</span>: Increased heat-related mortality, changing disease patterns</li>
+                                <li><span class="highlight">Biodiversity</span>: Shifts in species distribution, increased extinction risks</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-2">Climate Change Adaptation and Mitigation</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+                                <div class="bg-green-50 p-3 rounded">
+                                    <h5 class="font-medium text-green-800">Adaptation</h5>
+                                    <p class="text-sm mb-2">Adjusting to actual or expected climate change and its effects</p>
+                                    <ul class="list-disc pl-4 text-sm">
+                                        <li>Climate-resilient agriculture</li>
+                                        <li>Water conservation measures</li>
+                                        <li>Early warning systems</li>
+                                        <li>Infrastructure improvements</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-amber-50 p-3 rounded">
+                                    <h5 class="font-medium text-amber-800">Mitigation</h5>
+                                    <p class="text-sm mb-2">Reducing emissions or enhancing sinks of greenhouse gases</p>
+                                    <ul class="list-disc pl-4 text-sm">
+                                        <li>Renewable energy transition</li>
+                                        <li>Energy efficiency improvements</li>
+                                        <li>Forest conservation and reforestation</li>
+                                        <li>Sustainable transportation</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2 text-blue-700">Key Points for Exam</h4>
+                            <ul class="list-disc pl-6 space-y-1">
+                                <li>The UNFCCC (United Nations Framework Convention on Climate Change) is the primary international treaty addressing climate change</li>
+                                <li>The principle of "Common but Differentiated Responsibilities" recognizes different capabilities and responsibilities of countries</li>
+                                <li>India's National Action Plan on Climate Change (NAPCC) includes eight missions addressing different aspects of climate change</li>
+                                <li>Climate justice is a concept that links human rights and development to achieve a human-centered approach to climate change</li>
+                                <li>The concept of "loss and damage" addresses impacts of climate change that cannot be avoided through adaptation</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div id="legal" class="tab-content bg-white p-6 rounded-b-lg border-t-2 border-blue-600 hidden">
+                        <h3 class="text-xl font-semibold mb-4 text-blue-700">International Legal Framework</h3>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-2">Key International Agreements</h4>
+                            <div class="space-y-4 mt-2">
+                                <div class="border-l-4 border-blue-600 pl-4 py-1">
+                                    <h5 class="font-medium">Montreal Protocol (1987)</h5>
+                                    <p class="text-sm">International treaty designed to protect the ozone layer by phasing out the production of substances that are responsible for ozone depletion.</p>
+                                </div>
+                                <div class="border-l-4 border-blue-600 pl-4 py-1">
+                                    <h5 class="font-medium">United Nations Framework Convention on Climate Change (1992)</h5>
+                                    <p class="text-sm">An international environmental treaty addressing climate change, negotiated at the Earth Summit in Rio de Janeiro.</p>
+                                </div>
+                                <div class="border-l-4 border-blue-600 pl-4 py-1">
+                                    <h5 class="font-medium">Kyoto Protocol (1997)</h5>
+                                    <p class="text-sm">Operationalizes the UNFCCC by committing industrialized countries to limit and reduce greenhouse gas emissions.</p>
+                                </div>
+                                <div class="border-l-4 border-blue-600 pl-4 py-1">
+                                    <h5 class="font-medium">Paris Agreement (2015)</h5>
+                                    <p class="text-sm">A legally binding international treaty on climate change, with the goal of limiting global warming to well below 2°C, preferably to 1.5°C, compared to pre-industrial levels.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-2">Key Principles of International Environmental Law</h4>
+                            <ul class="list-disc pl-6 mt-2 space-y-1">
+                                <li><span class="highlight">Precautionary Principle</span>: When an activity raises threats of harm to human health or the environment, precautionary measures should be taken even if some cause-and-effect relationships are not fully established scientifically</li>
+                                <li><span class="highlight">Polluter Pays Principle</span>: The party responsible for producing pollution should bear the costs of managing it to prevent damage to human health or the environment</li>
+                                <li><span class="highlight">Common but Differentiated Responsibilities</span>: All states have a common responsibility to protect the environment, but with different obligations based on social and economic situations</li>
+                                <li><span class="highlight">Sustainable Development</span>: Development that meets the needs of the present without compromising the ability of future generations to meet their own needs</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-2">India's Commitments and Actions</h4>
+                            <div class="bg-blue-50 p-4 rounded">
+                                <h5 class="font-medium text-blue-800 mb-2">Nationally Determined Contributions (NDCs)</h5>
+                                <ul class="list-disc pl-6 text-sm space-y-1">
+                                    <li>Reduce emissions intensity of GDP by 33-35% by 2030 from 2005 level</li>
+                                    <li>Achieve about 40% cumulative electric power installed capacity from non-fossil fuel-based energy resources by 2030</li>
+                                    <li>Create an additional carbon sink of 2.5 to 3 billion tonnes of CO₂ equivalent through additional forest and tree cover by 2030</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2 text-blue-700">Key Points for Exam</h4>
+                            <ul class="list-disc pl-6 space-y-1">
+                                <li>The Conference of Parties (COP) is the supreme decision-making body of the UNFCCC</li>
+                                <li>The principle of "intergenerational equity" is central to environmental law</li>
+                                <li>The Green Climate Fund was established to assist developing countries in adaptation and mitigation practices</li>
+                                <li>India's National Action Plan on Climate Change (NAPCC) was launched in 2008</li>
+                                <li>The concept of "climate refugees" refers to people displaced due to climate change impacts</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Unit 3 Content -->
+            <div id="unit3-content" class="content-section">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-amber-800">Unit 3: Environmental Degradation</h2>
+                    <button onclick="showWelcome()" class="text-amber-600 hover:text-amber-800 flex items-center">
+                        <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                        </svg>
+                        Back to Menu
+                    </button>
+                </div>
+
+                <div class="mb-8">
+                    <div class="flex space-x-2 mb-4">
+                        <button onclick="showTab('causes', this)" class="tab-button active-tab px-4 py-2 rounded-t-lg font-medium">Causes</button>
+                        <button onclick="showTab('effects', this)" class="tab-button px-4 py-2 rounded-t-lg font-medium">Effects</button>
+                        <button onclick="showTab('mitigation', this)" class="tab-button px-4 py-2 rounded-t-lg font-medium">Mitigation</button>
+                        <button onclick="showTab('legal-remedies', this)" class="tab-button px-4 py-2 rounded-t-lg font-medium">Legal Remedies</button>
+                    </div>
+
+                    <div id="causes" class="tab-content bg-white p-6 rounded-b-lg border-t-2 border-amber-600">
+                        <h3 class="text-xl font-semibold mb-4 text-amber-700">Causes of Environmental Degradation</h3>
+                        
+                        <div class="concept-box p-4 mb-6 rounded">
+                            <h4 class="font-semibold mb-2">Definition</h4>
+                            <p>Environmental degradation is the deterioration of the environment through depletion of resources such as air, water, and soil; the destruction of ecosystems; habitat destruction; the extinction of wildlife; and pollution.</p>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-2">Anthropogenic (Human-Caused) Factors</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+                                <div class="bg-amber-50 p-3 rounded">
+                                    <h5 class="font-medium text-amber-800">Industrialization</h5>
+                                    <ul class="list-disc pl-4 text-sm">
+                                        <li>Industrial emissions and effluents</li>
+                                        <li>Resource extraction and processing</li>
+                                        <li>Hazardous waste generation</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-amber-50 p-3 rounded">
+                                    <h5 class="font-medium text-amber-800">Urbanization</h5>
+                                    <ul class="list-disc pl-4 text-sm">
+                                        <li>Land use changes and habitat loss</li>
+                                        <li>Urban heat island effect</li>
+                                        <li>Waste management challenges</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-amber-50 p-3 rounded">
+                                    <h5 class="font-medium text-amber-800">Agricultural Practices</h5>
+                                    <ul class="list-disc pl-4 text-sm">
+                                        <li>Deforestation for agricultural land</li>
+                                        <li>Chemical fertilizers and pesticides</li>
+                                        <li>Soil degradation and erosion</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-amber-50 p-3 rounded">
+                                    <h5 class="font-medium text-amber-800">Energy Production</h5>
+                                    <ul class="list-disc pl-4 text-sm">
+                                        <li>Fossil fuel extraction and combustion</li>
+                                        <li>Mining activities</li>
+                                        <li>Nuclear waste</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-2">Natural Factors</h4>
+                            <ul class="list-disc pl-6 mt-2 space-y-1">
+                                <li><span class="highlight">Natural Disasters</span>: Earthquakes, volcanic eruptions, tsunamis, floods</li>
+                                <li><span class="highlight">Wildfires</span>: Natural forest fires that can destroy habitats</li>
+                                <li><span class="highlight">Drought</span>: Extended periods of water scarcity</li>
+                                <li><span class="highlight">Invasive Species</span>: Non-native species that can disrupt ecosystems</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-2">Specific Issues in India</h4>
+                            <ul class="list-disc pl-6 mt-2 space-y-1">
+                                <li><span class="highlight">Population Pressure</span>: High population density leading to resource overexploitation</li>
+                                <li><span class="highlight">Rapid Industrialization</span>: Often without adequate environmental safeguards</li>
+                                <li><span class="highlight">Water Pollution</span>: Industrial effluents and untreated sewage in rivers</li>
+                                <li><span class="highlight">Air Pollution</span>: Particularly severe in urban areas and industrial clusters</li>
+                                <li><span class="highlight">Deforestation</span>: For agriculture, mining, and infrastructure development</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2 text-amber-700">Key Points for Exam</h4>
+                            <ul class="list-disc pl-6 space-y-1">
+                                <li>Environmental degradation is often the result of multiple interacting factors</li>
+                                <li>The concept of "ecological footprint" measures human demand on nature</li>
+                                <li>The "tragedy of the commons" explains why common resources are often overexploited</li>
+                                <li>India's Environmental Performance Index (EPI) ranking reflects challenges in environmental management</li>
+                                <li>The principle of "sustainable development" aims to balance economic growth with environmental protection</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div id="effects" class="tab-content bg-white p-6 rounded-b-lg border-t-2 border-amber-600 hidden">
+                        <h3 class="text-xl font-semibold mb-4 text-amber-700">Effects of Environmental Degradation</h3>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-2">Ecological Effects</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+                                <div class="bg-amber-50 p-3 rounded">
+                                    <h5 class="font-medium text-amber-800">Biodiversity Loss</h5>
+                                    <p class="text-sm">Extinction of species and reduction in genetic diversity, disrupting ecosystem functions and services</p>
+                                </div>
+                                <div class="bg-amber-50 p-3 rounded">
+                                    <h5 class="font-medium text-amber-800">Ecosystem Disruption</h5>
+                                    <p class="text-sm">Alteration of natural processes and relationships between species, affecting ecosystem stability</p>
+                                </div>
+                                <div class="bg-amber-50 p-3 rounded">
+                                    <h5 class="font-medium text-amber-800">Habitat Fragmentation</h5>
+                                    <p class="text-sm">Breaking up of continuous habitats into smaller, isolated patches, affecting species movement and survival</p>
+                                </div>
+                                <div class="bg-amber-50 p-3 rounded">
+                                    <h5 class="font-medium text-amber-800">Soil Degradation</h5>
+                                    <p class="text-sm">Decline in soil quality through erosion, contamination, and loss of nutrients</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-2">Human Health Effects</h4>
+                            <ul class="list-disc pl-6 mt-2 space-y-1">
+                                <li><span class="highlight">Respiratory Diseases</span>: From air pollution (particulate matter, ground-level ozone)</li>
+                                <li><span class="highlight">Waterborne Diseases</span>: From contaminated water sources</li>
+                                <li><span class="highlight">Vector-borne Diseases</span>: Changes in climate affecting disease vectors like mosquitoes</li>
+                                <li><span class="highlight">Chemical Exposure</span>: Health impacts from pesticides, heavy metals, and other toxins</li>
+                                <li><span class="highlight">Mental Health</span>: Psychological impacts of environmental degradation and climate anxiety</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-2">Socioeconomic Effects</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+                                <div class="bg-blue-50 p-3 rounded">
+                                    <h5 class="font-medium text-blue-800">Agricultural Productivity</h5>
+                                    <p class="text-sm">Reduced crop yields due to soil degradation, water scarcity, and changing climate patterns</p>
+                                </div>
+                                <div class="bg-blue-50 p-3 rounded">
+                                    <h5 class="font-medium text-blue-800">Water Security</h5>
+                                    <p class="text-sm">Decreased availability and quality of water resources affecting communities and industries</p>
+                                </div>
+                                <div class="bg-blue-50 p-3 rounded">
+                                    <h5 class="font-medium text-blue-800">Resource Conflicts</h5>
+                                    <p class="text-sm">Competition over diminishing resources leading to social tensions and conflicts</p>
+                                </div>
+                                <div class="bg-blue-50 p-3 rounded">
+                                    <h5 class="font-medium text-blue-800">Economic Costs</h5>
+                                    <p class="text-sm">Increased healthcare costs, disaster recovery expenses, and reduced economic productivity</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-2">Environmental Justice Issues</h4>
+                            <p>Environmental degradation often disproportionately affects vulnerable populations:</p>
+                            <ul class="list-disc pl-6 mt-2 space-y-1">
+                                <li>Low-income communities often located near polluting industries</li>
+                                <li>Indigenous peoples facing displacement due to resource extraction</li>
+                                <li>Rural communities dependent on natural resources for livelihoods</li>
+                                <li>Future generations inheriting degraded environments</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2 text-amber-700">Key Points for Exam</h4>
+                            <ul class="list-disc pl-6 space-y-1">
+                                <li>The concept of "environmental justice" addresses the fair distribution of environmental benefits and burdens</li>
+                                <li>The "One Health" approach recognizes the interconnection between human, animal, and envi
